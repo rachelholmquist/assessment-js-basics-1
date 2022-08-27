@@ -1,25 +1,49 @@
 const e = require("cors");
 
-let password = "Evergreen54";
+let password = "Evergreen 54";
 
 console.log(`${password} ${password.length}`);
 
 
-let characterValidate = /([a-zA-Z0-9!@#$%^&*])/;
+let lowerLetters = /[a-z]/g;
+let upperLetters = /[A-Z]/g;
+let numbers = /[0-9]/g;
 
-if(password.match(characterValidate)){
-    console.log("Password characters are valid");
-} else{
-    console.log("password characters are not valid");
+if(password.match(lowerLetters)){
+}  else {
+    console.log("Your password needs a lowercase letter.")
     }
 
-let length = (password.length < 10);
-let maxLength = (password.length > 20);
-
-if(`${length}` === true || `${maxLength}` === true){
-    console.log("Password must be between 10 and 20 characters.");
+if(password.match(upperLetters)){
 } else {
-    console.log("password has correct amount of characters.");
+    console.log("Your password needs an uppercase letter.");
 }
 
+if(password.match(numbers)){
+
+} else {
+    console.log("Your password needs a number.")
+}
+
+//*Checking for password length minimum and maximum*//
+
+if((password.length < 10) || (password.length > 20)){
+    console.log("Password must be between 10 and 20 characters.");
+} else {
+    console.log(`
+                                                                                                                                                                       
+ #####     ##     ####    ####   #    #   ####   #####   #####       #   ####       #        ####   #    #   ####       ######  #    #   ####   #    #   ####   #    # 
+ #    #   #  #   #       #       #    #  #    #  #    #  #    #      #  #           #       #    #  ##   #  #    #      #       ##   #  #    #  #    #  #    #  #    # 
+ #    #  #    #   ####    ####   #    #  #    #  #    #  #    #      #   ####       #       #    #  # #  #  #           #####   # #  #  #    #  #    #  #       ###### 
+ #####   ######       #       #  # ## #  #    #  #####   #    #      #       #      #       #    #  #  # #  #  ###      #       #  # #  #    #  #    #  #  ###  #    # 
+ #       #    #  #    #  #    #  ##  ##  #    #  #   #   #    #      #  #    #      #       #    #  #   ##  #    #      #       #   ##  #    #  #    #  #    #  #    # 
+ #       #    #   ####    ####   #    #   ####   #    #  #####       #   ####       ######   ####   #    #   ####       ######  #    #   ####    ####    ####   #    # 
+                                                                                                                                                                       
+`);
+}
+//* Checking to see if password contains spaces*//
+
+if(password.indexOf(' ') >= 0){
+    console.log("Password cannot have spaces.")
+}
 
